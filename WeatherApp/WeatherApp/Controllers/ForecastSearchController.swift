@@ -26,6 +26,7 @@ class ForecastSearchController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         forecastSearchView.forecastCollectionView.dataSource = self
+        forecastSearchView.zipcodeTextField.delegate = self
     }
 }
 
@@ -45,5 +46,12 @@ extension ForecastSearchController: UICollectionViewDataSource  {
     }
     
     
+}
+
+extension ForecastSearchController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        forecastSearchView.zipcodeTextField.resignFirstResponder()
+        return true
+    }
 }
 
