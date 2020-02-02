@@ -30,10 +30,17 @@ class ForecastSearchView: UIView {
         return label
     }()
     
+    public lazy var zipCodeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Enter a Zip Code"
+        return label
+    }()
+    
     public lazy var zipcodeTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = placeHolderText
         textField.backgroundColor = .systemGray
+        textField.textAlignment = .center
         return textField
     }()
     
@@ -51,6 +58,7 @@ class ForecastSearchView: UIView {
         setupcityForecastLabel()
         setupForecastCollectionViewConstraints()
         setupZipCodeTextField()
+        setupZipCodeLabel()
     }
     
     private func setupForecastCollectionViewConstraints()   {
@@ -63,7 +71,6 @@ class ForecastSearchView: UIView {
             forecastCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 80),
             forecastCollectionView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.25)
         ])
-        
     }
     
     private func setupcityForecastLabel()    {
@@ -85,7 +92,16 @@ class ForecastSearchView: UIView {
             zipcodeTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
             zipcodeTextField.topAnchor.constraint(equalTo: forecastCollectionView.bottomAnchor, constant: 40),
             zipcodeTextField.widthAnchor.constraint(equalToConstant: 110)
-            
+        ])
+    }
+    
+    private func setupZipCodeLabel()    {
+        addSubview(zipCodeLabel)
+        zipCodeLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            zipCodeLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            zipCodeLabel.topAnchor.constraint(equalTo: zipcodeTextField.bottomAnchor, constant: 20)
         ])
     }
     
