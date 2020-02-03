@@ -21,7 +21,7 @@ class ZipCodeForecastAPI  {
         }
         
         let urlRequest = URLRequest(url: url)
-        
+        // [highLow, highLow, highLow]
         // url request with url request get and turn data to object
         NetworkHelper.shared.performDataTask(with: urlRequest) { (result) in
             switch result   {

@@ -18,7 +18,13 @@ class ForecastSearchController: UIViewController {
     private let forecastSearchView = ForecastSearchView()
     private let forecastCVCell = ForecastCVCell()
     
-    var zipcodeForecast = [ZipCodeForecast]()
+    var zipcodeForecast = [DailyForecastWrapper]()  {
+        didSet  {
+            DispatchQueue.main.async {
+                self.forecastSearchView.forecastCollectionView.reloadData()
+            }
+        }
+    }
     
     override func loadView() {
         view = forecastSearchView
@@ -39,15 +45,18 @@ extension ForecastSearchController: UICollectionViewDelegate    {
 
 extension ForecastSearchController: UICollectionViewDataSource  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return zipcodeForecast.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "forecastCell", for: indexPath) as! ForecastCVCell
         cell.backgroundColor = UIColor.systemOrange
+        let forecast = zipcodeForecast[indexPath.row]
+        
+        // configure cell
+        cell.configureCell(forecast: forecast)
         return cell
     }
-    
     
 }
 
@@ -68,7 +77,8 @@ extension ForecastSearchController: UITextFieldDelegate {
                     case .failure(let appError):
                         print(appError)
                     case .success(let forecast):
-                        print(forecast)
+                        self.zipcodeForecast = forecast.daily.data
+                        print(forecast.daily.data)
                     }
                 }
             }

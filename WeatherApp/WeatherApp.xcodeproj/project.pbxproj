@@ -121,11 +121,11 @@
 		548CE050234D33B500B5177D /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				3EB2D2F323E796AE00BD2CFC /* Network Services */,
-				3EB2D2F223E7969900BD2CFC /* Data Persistence */,
 				3E5ED4D923E4CB46001809C2 /* Views */,
 				3E5ED4D823E4BCDF001809C2 /* Controllers */,
 				3E5ED4D723E4BCCF001809C2 /* Models */,
+				3EB2D2F323E796AE00BD2CFC /* Network Services */,
+				3EB2D2F223E7969900BD2CFC /* Data Persistence */,
 				3E5ED4D623E4BC74001809C2 /* Supporting Files */,
 				548CE05F234D33B600B5177D /* Info.plist */,
 			);

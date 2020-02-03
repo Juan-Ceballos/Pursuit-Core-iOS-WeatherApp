@@ -20,10 +20,10 @@ struct ZipCodeForecast: Decodable  {
 }
 
 struct DailyWrapper: Decodable  {
-    let data: [DataWrapper]
+    let data: [DailyForecastWrapper]
 }
 
-struct DataWrapper: Decodable   {
+struct DailyForecastWrapper: Decodable   {
     let time: Int
     let summary: String
     let icon: String
