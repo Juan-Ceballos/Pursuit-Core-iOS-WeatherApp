@@ -12,6 +12,7 @@
 		3EB2D2F123E7967D00BD2CFC /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3EB2D2F023E7967D00BD2CFC /* ImageKit */; };
 		3EB2D2F523E797FA00BD2CFC /* ZipCodeForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D2F423E797FA00BD2CFC /* ZipCodeForecast.swift */; };
 		3EB2D2F723E79AD600BD2CFC /* ZipCodeForecastAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D2F623E79AD600BD2CFC /* ZipCodeForecastAPI.swift */; };
+		3EB2D2F923E867AE00BD2CFC /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D2F823E867AE00BD2CFC /* UserInfo.swift */; };
 		548CE052234D33B500B5177D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548CE051234D33B500B5177D /* AppDelegate.swift */; };
 		548CE054234D33B500B5177D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548CE053234D33B500B5177D /* SceneDelegate.swift */; };
 		548CE056234D33B500B5177D /* ForecastSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548CE055234D33B500B5177D /* ForecastSearchController.swift */; };
@@ -25,6 +26,7 @@
 		3E5ED4DE23E51FC4001809C2 /* ForecastCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCVCell.swift; sourceTree = "<group>"; };
 		3EB2D2F423E797FA00BD2CFC /* ZipCodeForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeForecast.swift; sourceTree = "<group>"; };
 		3EB2D2F623E79AD600BD2CFC /* ZipCodeForecastAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeForecastAPI.swift; sourceTree = "<group>"; };
+		3EB2D2F823E867AE00BD2CFC /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		548CE04E234D33B500B5177D /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		548CE051234D33B500B5177D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		548CE053234D33B500B5177D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		3EB2D2F223E7969900BD2CFC /* Data Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				3EB2D2F823E867AE00BD2CFC /* UserInfo.swift */,
 			);
 			path = "Data Persistence";
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				3EB2D2F523E797FA00BD2CFC /* ZipCodeForecast.swift in Sources */,
 				548CE052234D33B500B5177D /* AppDelegate.swift in Sources */,
 				548CE054234D33B500B5177D /* SceneDelegate.swift in Sources */,
+				3EB2D2F923E867AE00BD2CFC /* UserInfo.swift in Sources */,
 				3E5ED4DF23E51FC4001809C2 /* ForecastCVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -29,6 +29,7 @@ class ForecastSearchController: UIViewController {
         view.backgroundColor = .systemBackground
         forecastSearchView.forecastCollectionView.dataSource = self
         forecastSearchView.zipcodeTextField.delegate = self
+        forecastSearchView.zipcodeTextField.text = UserInfo.shared.getZipCode()
     }
 }
 
@@ -50,11 +51,13 @@ extension ForecastSearchController: UICollectionViewDataSource  {
     
 }
 
+// put forecast model in collection view, connect assets to icon in model, string
 extension ForecastSearchController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         forecastSearchView.zipcodeTextField.resignFirstResponder()
         let latLong = textField.text ?? ""
         print(latLong)
+        UserInfo.shared.updateZipcode(zipCode: latLong)
         ZipCodeHelper.getLatLong(fromZipCode: latLong) { (result) in
             switch result   {
             case .failure(let zipError):
