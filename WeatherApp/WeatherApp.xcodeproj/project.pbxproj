@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3E5ED4DB23E4CC58001809C2 /* ForecastSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5ED4DA23E4CC58001809C2 /* ForecastSearchView.swift */; };
 		3E5ED4DF23E51FC4001809C2 /* ForecastCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5ED4DE23E51FC4001809C2 /* ForecastCVCell.swift */; };
+		3EB2D2F123E7967D00BD2CFC /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3EB2D2F023E7967D00BD2CFC /* ImageKit */; };
+		3EB2D2F523E797FA00BD2CFC /* ZipCodeForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D2F423E797FA00BD2CFC /* ZipCodeForecast.swift */; };
+		3EB2D2F723E79AD600BD2CFC /* ZipCodeForecastAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D2F623E79AD600BD2CFC /* ZipCodeForecastAPI.swift */; };
 		548CE052234D33B500B5177D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548CE051234D33B500B5177D /* AppDelegate.swift */; };
 		548CE054234D33B500B5177D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548CE053234D33B500B5177D /* SceneDelegate.swift */; };
 		548CE056234D33B500B5177D /* ForecastSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548CE055234D33B500B5177D /* ForecastSearchController.swift */; };
@@ -20,6 +23,8 @@
 /* Begin PBXFileReference section */
 		3E5ED4DA23E4CC58001809C2 /* ForecastSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastSearchView.swift; sourceTree = "<group>"; };
 		3E5ED4DE23E51FC4001809C2 /* ForecastCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCVCell.swift; sourceTree = "<group>"; };
+		3EB2D2F423E797FA00BD2CFC /* ZipCodeForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeForecast.swift; sourceTree = "<group>"; };
+		3EB2D2F623E79AD600BD2CFC /* ZipCodeForecastAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeForecastAPI.swift; sourceTree = "<group>"; };
 		548CE04E234D33B500B5177D /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		548CE051234D33B500B5177D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		548CE053234D33B500B5177D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EB2D2F123E7967D00BD2CFC /* ImageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,7 +61,7 @@
 		3E5ED4D723E4BCCF001809C2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				548CE065234D33E600B5177D /* ZipCodeHelper.swift */,
+				3EB2D2F423E797FA00BD2CFC /* ZipCodeForecast.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -77,6 +83,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3EB2D2F223E7969900BD2CFC /* Data Persistence */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Data Persistence";
+			sourceTree = "<group>";
+		};
+		3EB2D2F323E796AE00BD2CFC /* Network Services */ = {
+			isa = PBXGroup;
+			children = (
+				3EB2D2F623E79AD600BD2CFC /* ZipCodeForecastAPI.swift */,
+				548CE065234D33E600B5177D /* ZipCodeHelper.swift */,
+			);
+			path = "Network Services";
+			sourceTree = "<group>";
+		};
 		548CE045234D33B500B5177D = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +118,8 @@
 		548CE050234D33B500B5177D /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				3EB2D2F323E796AE00BD2CFC /* Network Services */,
+				3EB2D2F223E7969900BD2CFC /* Data Persistence */,
 				3E5ED4D923E4CB46001809C2 /* Views */,
 				3E5ED4D823E4BCDF001809C2 /* Controllers */,
 				3E5ED4D723E4BCCF001809C2 /* Models */,
@@ -121,6 +145,9 @@
 			dependencies = (
 			);
 			name = WeatherApp;
+			packageProductDependencies = (
+				3EB2D2F023E7967D00BD2CFC /* ImageKit */,
+			);
 			productName = WeatherApp;
 			productReference = 548CE04E234D33B500B5177D /* WeatherApp.app */;
 			productType = "com.apple.product-type.application";
@@ -149,6 +176,9 @@
 				Base,
 			);
 			mainGroup = 548CE045234D33B500B5177D;
+			packageReferences = (
+				3EB2D2EF23E7967D00BD2CFC /* XCRemoteSwiftPackageReference "ImageKit" */,
+			);
 			productRefGroup = 548CE04F234D33B500B5177D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -177,7 +207,9 @@
 			files = (
 				548CE066234D33E600B5177D /* ZipCodeHelper.swift in Sources */,
 				3E5ED4DB23E4CC58001809C2 /* ForecastSearchView.swift in Sources */,
+				3EB2D2F723E79AD600BD2CFC /* ZipCodeForecastAPI.swift in Sources */,
 				548CE056234D33B500B5177D /* ForecastSearchController.swift in Sources */,
+				3EB2D2F523E797FA00BD2CFC /* ZipCodeForecast.swift in Sources */,
 				548CE052234D33B500B5177D /* AppDelegate.swift in Sources */,
 				548CE054234D33B500B5177D /* SceneDelegate.swift in Sources */,
 				3E5ED4DF23E51FC4001809C2 /* ForecastCVCell.swift in Sources */,
@@ -368,6 +400,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3EB2D2EF23E7967D00BD2CFC /* XCRemoteSwiftPackageReference "ImageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/ImageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3EB2D2F023E7967D00BD2CFC /* ImageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EB2D2EF23E7967D00BD2CFC /* XCRemoteSwiftPackageReference "ImageKit" */;
+			productName = ImageKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 548CE046234D33B500B5177D /* Project object */;
 }

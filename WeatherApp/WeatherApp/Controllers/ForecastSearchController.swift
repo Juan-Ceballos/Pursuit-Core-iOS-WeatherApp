@@ -18,6 +18,8 @@ class ForecastSearchController: UIViewController {
     private let forecastSearchView = ForecastSearchView()
     private let forecastCVCell = ForecastCVCell()
     
+    var zipcodeForecast = [ZipCodeForecast]()
+    
     override func loadView() {
         view = forecastSearchView
     }
@@ -51,6 +53,23 @@ extension ForecastSearchController: UICollectionViewDataSource  {
 extension ForecastSearchController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         forecastSearchView.zipcodeTextField.resignFirstResponder()
+        let latLong = textField.text ?? ""
+        print(latLong)
+        ZipCodeHelper.getLatLong(fromZipCode: latLong) { (result) in
+            switch result   {
+            case .failure(let zipError):
+                print(zipError)
+            case .success(let latLongTuple):
+                ZipCodeForecastAPI.fetchForeCast(latLong: latLongTuple) { (result) in
+                    switch result   {
+                    case .failure(let appError):
+                        print(appError)
+                    case .success(let forecast):
+                        print(forecast)
+                    }
+                }
+            }
+        }
         return true
     }
 }
