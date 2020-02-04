@@ -75,8 +75,8 @@
 		3E5ED4D823E4BCDF001809C2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				548CE055234D33B500B5177D /* ForecastSearchController.swift */,
 				3EB2D36423EA1BDC00BD2CFC /* ForecastTabBarController.swift */,
+				548CE055234D33B500B5177D /* ForecastSearchController.swift */,
 				3EB2D36623EA1D1500BD2CFC /* FavoritesViewController.swift */,
 			);
 			path = Controllers;
