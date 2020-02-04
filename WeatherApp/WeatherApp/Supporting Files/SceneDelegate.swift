@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowsScene
-        window?.rootViewController = ForecastSearchController()
+        window?.rootViewController = ForecastTabBarController()
         window?.makeKeyAndVisible()
     }
 

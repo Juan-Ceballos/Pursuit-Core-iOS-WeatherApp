@@ -50,11 +50,13 @@ extension ForecastSearchController: UICollectionViewDataSource  {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "forecastCell", for: indexPath) as! ForecastCVCell
-        cell.backgroundColor = UIColor.systemOrange
+        //cell.backgroundColor = UIColor.systemOrange
         let forecast = zipcodeForecast[indexPath.row]
         
         // configure cell
         cell.configureCell(forecast: forecast)
+        cell.layer.borderColor = UIColor.systemOrange.cgColor
+        cell.layer.borderWidth = 5
         return cell
     }
     
