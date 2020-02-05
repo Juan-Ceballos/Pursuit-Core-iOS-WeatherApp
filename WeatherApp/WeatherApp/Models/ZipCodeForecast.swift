@@ -32,4 +32,15 @@ struct DailyForecastWrapper: Decodable   {
     let temperatureLow: Double
     let windSpeed: Double
     let precipAccumalation: Double?
+    
+    var timeToDate: String    {
+        let date = Date(timeIntervalSince1970: TimeInterval(time))
+               let dateFormatter = DateFormatter()
+               dateFormatter.timeStyle = DateFormatter.Style.medium
+               dateFormatter.dateStyle = DateFormatter.Style.medium
+               dateFormatter.timeZone = .current
+               dateFormatter.dateFormat = "EEEE, MMM d"//EEEE, MMM d, yyyy, hh:mm a"
+               let localDate = dateFormatter.string(from: date)
+               return localDate
+    }
 }

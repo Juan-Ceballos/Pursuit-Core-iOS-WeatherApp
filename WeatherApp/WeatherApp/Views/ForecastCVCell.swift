@@ -14,7 +14,7 @@ class ForecastCVCell: UICollectionViewCell {
     
     private let cellReuseIdentifier = "forecastCell"
     
-    private lazy var cityLabel: UILabel = {
+    private lazy var timeLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         return label
@@ -42,7 +42,7 @@ class ForecastCVCell: UICollectionViewCell {
         lowLabel.text = forecast.temperatureLow.description
         highLabel.text = forecast.temperatureHigh.description
         weatherImage.image = UIImage(named: forecast.icon)
-        cityLabel.text = "default"
+        timeLabel.text = forecast.timeToDate
     }
     
     override init(frame: CGRect) {
@@ -93,14 +93,14 @@ class ForecastCVCell: UICollectionViewCell {
     }
     
     private func setupCityLabel()   {
-        addSubview(cityLabel)
-        cityLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(timeLabel)
+        timeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            cityLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            cityLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-            cityLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            cityLabel.bottomAnchor.constraint(equalTo: weatherImage.topAnchor, constant: -8)
+            timeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            timeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            timeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            timeLabel.bottomAnchor.constraint(equalTo: weatherImage.topAnchor, constant: -8)
         ])
     }
 }

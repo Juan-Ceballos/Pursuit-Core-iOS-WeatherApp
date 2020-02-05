@@ -11,6 +11,7 @@ import Foundation
 struct UserInfoKey  {
     static let zipCodeEntry = "zipcode"
     static let city = "city"
+    static let time = "time"
 }
 
 class UserInfo  {
@@ -40,6 +41,18 @@ class UserInfo  {
                 return nil
         }
         return cityName
+    }
+    
+    func updateTime(time: String)   {
+        standard.set(time, forKey: UserInfoKey.time)
+    }
+    
+    func getTime()  -> String?  {
+        guard let timeName = standard.object(forKey: UserInfoKey.time) as? String
+            else    {
+                return nil
+        }
+        return timeName
     }
 }
 
