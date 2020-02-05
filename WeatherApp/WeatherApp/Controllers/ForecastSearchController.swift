@@ -38,13 +38,33 @@ class ForecastSearchController: UIViewController {
         forecastSearchView.forecastCollectionView.delegate = self
         forecastSearchView.zipcodeTextField.delegate = self
         forecastSearchView.zipcodeTextField.text = UserInfo.shared.getZipCode()
+        updateUI()
+    }
+    
+    func updateUI()  {
+        ZipCodeHelper.getLatLong2(fromZipCode: UserInfo.shared.getZipCode() ?? "") { (result) in
+            switch result   {
+            case .failure(let zipError):
+                print(zipError)
+            case .success(let latLongTuple):
+                UserInfo.shared.updateCity(city: latLongTuple.placeName)
+                ZipCodeForecastAPI.fetchForeCast(latLong: latLongTuple) { (result) in
+                    switch result   {
+                    case .failure(let appError):
+                        print(appError)
+                    case .success(let forecast):
+                        self.zipcodeForecast = forecast.daily.data
+                        print(forecast.daily.data)
+                    }
+                }
+            }
+        }
     }
 }
 
 extension ForecastSearchController: UICollectionViewDelegate    {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.navigationController?.pushViewController(detail, animated: true)
-        present(detail, animated: true, completion: nil)
         print("this was clicked")
     }
 }
