@@ -15,7 +15,6 @@ struct ZipCodeForecast: Decodable  {
     // sunset
     // wind speed
     // inches of precipitation
-    
     let daily: DailyWrapper
 }
 

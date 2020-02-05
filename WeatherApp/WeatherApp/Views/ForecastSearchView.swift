@@ -25,7 +25,7 @@ class ForecastSearchView: UIView {
     
     public lazy var cityForecastLabel: UILabel = {
         let label = UILabel()
-        label.text = defaultMessage
+        label.text = UserInfo.shared.getCity()
         label.textAlignment = .center
         return label
     }()

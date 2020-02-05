@@ -14,6 +14,12 @@ class ForecastCVCell: UICollectionViewCell {
     
     private let cellReuseIdentifier = "forecastCell"
     
+    private lazy var cityLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        return label
+    }()
+    
     private lazy var lowLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -36,6 +42,7 @@ class ForecastCVCell: UICollectionViewCell {
         lowLabel.text = forecast.temperatureLow.description
         highLabel.text = forecast.temperatureHigh.description
         weatherImage.image = UIImage(named: forecast.icon)
+        cityLabel.text = "default"
     }
     
     override init(frame: CGRect) {
@@ -51,6 +58,7 @@ class ForecastCVCell: UICollectionViewCell {
     private func commonInit()   {
         setupLabelConstraints()
         setupImageConstraints()
+        setupCityLabel()
     }
     
     private func setupLabelConstraints()    {
@@ -81,6 +89,18 @@ class ForecastCVCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             weatherImage.centerYAnchor.constraint(equalTo: centerYAnchor),
             weatherImage.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+    }
+    
+    private func setupCityLabel()   {
+        addSubview(cityLabel)
+        cityLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            cityLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            cityLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            cityLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            cityLabel.bottomAnchor.constraint(equalTo: weatherImage.topAnchor, constant: -8)
         ])
     }
 }

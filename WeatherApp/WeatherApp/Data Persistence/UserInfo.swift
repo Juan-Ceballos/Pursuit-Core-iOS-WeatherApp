@@ -10,6 +10,7 @@ import Foundation
 
 struct UserInfoKey  {
     static let zipCodeEntry = "zipcode"
+    static let city = "city"
 }
 
 class UserInfo  {
@@ -27,6 +28,18 @@ class UserInfo  {
                 return nil
         }
         return zipCode
+    }
+    
+    func updateCity(city: String)   {
+        standard.set(city, forKey: UserInfoKey.city)
+    }
+    
+    func getCity()  -> String?  {
+        guard let cityName = standard.object(forKey: UserInfoKey.city) as? String
+            else    {
+                return nil
+        }
+        return cityName
     }
 }
 

@@ -52,11 +52,11 @@ extension ForecastSearchController: UICollectionViewDataSource  {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "forecastCell", for: indexPath) as! ForecastCVCell
         //cell.backgroundColor = UIColor.systemOrange
         let forecast = zipcodeForecast[indexPath.row]
-        
+        forecastSearchView.cityForecastLabel.text = UserInfo.shared.getCity()
         // configure cell
         cell.configureCell(forecast: forecast)
         cell.layer.borderColor = UIColor.systemOrange.cgColor
-        cell.layer.borderWidth = 5
+        cell.layer.borderWidth = 10
         return cell
     }
     
@@ -69,11 +69,13 @@ extension ForecastSearchController: UITextFieldDelegate {
         let latLong = textField.text ?? ""
         print(latLong)
         UserInfo.shared.updateZipcode(zipCode: latLong)
-        ZipCodeHelper.getLatLong(fromZipCode: latLong) { (result) in
+        ZipCodeHelper.getLatLong2(fromZipCode: latLong) { (result) in
             switch result   {
             case .failure(let zipError):
                 print(zipError)
             case .success(let latLongTuple):
+                print(latLongTuple)
+                UserInfo.shared.updateCity(city: latLongTuple.placeName)
                 ZipCodeForecastAPI.fetchForeCast(latLong: latLongTuple) { (result) in
                     switch result   {
                     case .failure(let appError):
