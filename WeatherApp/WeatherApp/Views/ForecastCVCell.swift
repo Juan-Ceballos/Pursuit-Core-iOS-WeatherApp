@@ -39,8 +39,8 @@ class ForecastCVCell: UICollectionViewCell {
     }()
     
     func configureCell(forecast: DailyForecastWrapper)    {
-        lowLabel.text = forecast.temperatureLow.description
-        highLabel.text = forecast.temperatureHigh.description
+        lowLabel.text = "Low: \(UserInfo.shared.getLowTemp() ?? "")"
+        highLabel.text = "High: \(forecast.temperatureHigh.description)"
         weatherImage.image = UIImage(named: forecast.icon)
         timeLabel.text = forecast.timeToDate
     }

@@ -23,6 +23,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowsScene
         window?.rootViewController = ForecastTabBarController()
         window?.makeKeyAndVisible()
+        let detail = DetailForecastViewController()
+        let vc = UINavigationController(rootViewController: ForecastSearchController())
+        vc.modalPresentationStyle = .overFullScreen
+        vc.viewControllers = [detail, ForecastSearchController()]
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

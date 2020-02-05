@@ -17,6 +17,7 @@ class ForecastSearchController: UIViewController {
     // make an instance of your view
     private let forecastSearchView = ForecastSearchView()
     private let forecastCVCell = ForecastCVCell()
+    private let detail = DetailForecastViewController()
     
     var zipcodeForecast = [DailyForecastWrapper]()  {
         didSet  {
@@ -34,13 +35,18 @@ class ForecastSearchController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         forecastSearchView.forecastCollectionView.dataSource = self
+        forecastSearchView.forecastCollectionView.delegate = self
         forecastSearchView.zipcodeTextField.delegate = self
         forecastSearchView.zipcodeTextField.text = UserInfo.shared.getZipCode()
     }
 }
 
 extension ForecastSearchController: UICollectionViewDelegate    {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.navigationController?.pushViewController(detail, animated: true)
+        present(detail, animated: true, completion: nil)
+        print("this was clicked")
+    }
 }
 
 extension ForecastSearchController: UICollectionViewDataSource  {
@@ -50,10 +56,11 @@ extension ForecastSearchController: UICollectionViewDataSource  {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "forecastCell", for: indexPath) as! ForecastCVCell
-        //cell.backgroundColor = UIColor.systemOrange
         let forecast = zipcodeForecast[indexPath.row]
-        forecastSearchView.cityForecastLabel.text = UserInfo.shared.getCity()
-        // configure cell
+        forecastSearchView.cityForecastLabel.text = "Weather Forecast for \(UserInfo.shared.getCity() ?? "")"
+        
+        UserInfo.shared.updateLowTemp(lowTemp: forecast.temperatureLow.description)
+        
         cell.configureCell(forecast: forecast)
         cell.layer.borderColor = UIColor.systemOrange.cgColor
         cell.layer.borderWidth = 10

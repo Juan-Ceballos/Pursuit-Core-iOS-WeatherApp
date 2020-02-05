@@ -12,6 +12,7 @@ struct UserInfoKey  {
     static let zipCodeEntry = "zipcode"
     static let city = "city"
     static let time = "time"
+    static let lowTemp = "low temp"
 }
 
 class UserInfo  {
@@ -53,6 +54,18 @@ class UserInfo  {
                 return nil
         }
         return timeName
+    }
+    
+    func updateLowTemp(lowTemp: String) {
+        standard.set(lowTemp, forKey: UserInfoKey.lowTemp)
+    }
+    
+    func getLowTemp()   -> String?  {
+        guard let lowTemp = standard.object(forKey: UserInfoKey.lowTemp) as? String
+            else    {
+                return nil
+        }
+        return lowTemp
     }
 }
 
