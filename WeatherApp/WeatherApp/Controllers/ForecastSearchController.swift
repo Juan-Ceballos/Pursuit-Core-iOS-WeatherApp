@@ -64,8 +64,13 @@ class ForecastSearchController: UIViewController {
 
 extension ForecastSearchController: UICollectionViewDelegate    {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let forecastItem = zipcodeForecast[indexPath.row]
+        
+        detail.forecast = forecastItem
+        
         self.navigationController?.pushViewController(detail, animated: true)
         print("this was clicked")
+        
     }
 }
 
