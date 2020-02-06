@@ -97,7 +97,7 @@ class DetailForecastView: UIView    {
         NSLayoutConstraint.activate([
         
             forecastInfoStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            forecastInfoStackView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            forecastInfoStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 8)
         
         ])
     }

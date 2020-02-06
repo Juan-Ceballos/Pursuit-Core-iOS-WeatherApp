@@ -12,7 +12,7 @@ import NetworkHelper
 class ZipCodeForecastAPI  {
     
     static func fetchForeCast(latLong: (lat: Double, long: Double, placeName: String), completion: @escaping (Result<ZipCodeForecast, AppError>) -> ()) {
-        let endpointURL = "https://api.darksky.net/forecast/7622a00dde0c5e6478c2dd4c90286b39/\(latLong.lat),\(latLong.long)"
+        let endpointURL = "https://api.darksky.net/forecast/\(SecreetKeys.forcastKey)/\(latLong.lat),\(latLong.long)"
         
         guard let url = URL(string: endpointURL)
             else    {
