@@ -13,7 +13,8 @@ import NetworkHelper
 
 class CityPhotoAPI  {
     static func getCityPhoto(city: String, secretKey: String, completion: @escaping (Result<CityPhoto, AppError>) -> ())  {
-        let endpointURL = "https://pixabay.com/api/?key=\(SecreetKeys.pixabeyKey)&q=\(city)&image_type=photo"
+        //https://pixabay.com/api/?key=14991329-746c4fc942c64ffd858babd92&q=Chicago&city&image_type=photo
+        let endpointURL = "https://pixabay.com/api/?key=\(secretKey)&q=\(city)&city&image_type=photo"
         
         guard let url = URL(string: endpointURL)
             else    {

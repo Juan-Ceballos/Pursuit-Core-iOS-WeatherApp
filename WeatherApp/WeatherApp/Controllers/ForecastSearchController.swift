@@ -42,7 +42,7 @@ class ForecastSearchController: UIViewController {
     }
     
     func updateUI()  {
-        ZipCodeHelper.getLatLong2(fromZipCode: UserInfo.shared.getZipCode() ?? "") { (result) in
+        ZipCodeHelper.getLatLong2(fromZipCode: UserInfo.shared.getZipCode() ?? "") { [weak self] (result) in
             switch result   {
             case .failure(let zipError):
                 print(zipError)
@@ -53,7 +53,7 @@ class ForecastSearchController: UIViewController {
                     case .failure(let appError):
                         print(appError)
                     case .success(let forecast):
-                        self.zipcodeForecast = forecast.daily.data
+                        self?.zipcodeForecast = forecast.daily.data
                         print(forecast.daily.data)
                     }
                 }
@@ -87,8 +87,8 @@ extension ForecastSearchController: UICollectionViewDataSource  {
         UserInfo.shared.updateLowTemp(lowTemp: forecast.temperatureLow.description)
         
         cell.configureCell(forecast: forecast)
-        cell.layer.borderColor = UIColor.systemOrange.cgColor
-        cell.layer.borderWidth = 10
+        //cell.layer.borderColor = UIColor.systemOrange.cgColor
+        //cell.layer.borderWidth = 10
         return cell
     }
     

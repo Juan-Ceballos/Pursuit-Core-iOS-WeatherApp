@@ -31,7 +31,7 @@ struct DailyForecastWrapper: Decodable   {
     let temperatureHigh: Double
     let temperatureLow: Double
     let windSpeed: Double
-    let precipAccumalation: Double?
+    let precipAccumulation: Double?
     
     var timeToDate: String    {
         let date = Date(timeIntervalSince1970: TimeInterval(time))

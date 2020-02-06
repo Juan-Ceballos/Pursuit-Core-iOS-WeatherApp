@@ -8,7 +8,7 @@
 
 import Foundation
 struct CityPhoto: Decodable {
-    let hit: [ImageWrapper]
+    let hits: [ImageWrapper]
 }
 
 struct ImageWrapper: Decodable  {
