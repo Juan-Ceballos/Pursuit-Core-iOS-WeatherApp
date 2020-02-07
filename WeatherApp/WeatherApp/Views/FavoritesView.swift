@@ -16,7 +16,7 @@ class FavoritesView: UIView    {
         layout.scrollDirection = .vertical
         layout.itemSize = CGSize(width: 400, height: 400)
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        collectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: "favoritesCell")
+        //collectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: "favoritesCell")
         collectionView.backgroundColor = .red
         return collectionView
     }()

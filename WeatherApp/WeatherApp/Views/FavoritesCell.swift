@@ -14,7 +14,7 @@ class FavoritesCell: UICollectionViewCell {
     
     public lazy var favoritedImage: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFill
+        image.contentMode = .scaleToFill
         return image
     }()
     

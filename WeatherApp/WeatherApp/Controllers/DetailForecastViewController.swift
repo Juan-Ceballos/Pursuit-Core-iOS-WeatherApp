@@ -39,6 +39,8 @@ class DetailForecastViewController: UIViewController {
             }
             catch   {
             }
+            
+            
         }
     }
     

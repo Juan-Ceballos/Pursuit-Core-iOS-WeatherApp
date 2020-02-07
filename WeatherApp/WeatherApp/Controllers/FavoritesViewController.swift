@@ -29,8 +29,9 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemOrange
+        view.backgroundColor = .red
         favoritesView.favoritesCollectionView.dataSource = self
+        favoritesView.favoritesCollectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: "favoritesCell")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -59,8 +60,9 @@ extension FavoritesViewController: UICollectionViewDataSource   {
     
         let photo = photoCollection[indexPath.row]
         
-        cell.favoritedImage.image = UIImage(data: photo.imageData, scale: 2.0)
-        
+        cell.favoritedImage.image = UIImage(data: photo.imageData)
+        cell.layer.borderColor = UIColor.systemOrange.cgColor
+        cell.layer.borderWidth = 10
         return cell
     }
     
