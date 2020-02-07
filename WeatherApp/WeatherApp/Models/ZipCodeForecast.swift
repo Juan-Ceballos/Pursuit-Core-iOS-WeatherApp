@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ZipCodeForecast: Decodable  {
+struct ZipCodeForecast: Codable & Equatable  {
     // high
     // low
     // sunrise
@@ -18,11 +18,11 @@ struct ZipCodeForecast: Decodable  {
     let daily: DailyWrapper
 }
 
-struct DailyWrapper: Decodable  {
+struct DailyWrapper: Codable & Equatable  {
     let data: [DailyForecastWrapper]
 }
 
-struct DailyForecastWrapper: Decodable   {
+struct DailyForecastWrapper: Codable & Equatable   {
     let time: Int
     let summary: String
     let icon: String

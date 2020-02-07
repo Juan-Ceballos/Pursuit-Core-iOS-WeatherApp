@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DataPersistence
 
 class ForecastSearchController: UIViewController {
 
@@ -14,9 +15,11 @@ class ForecastSearchController: UIViewController {
     
     // 3 controllers, main to enter zipcode and get collection view of weather forecast, city image with weather for day selected, favorite images tableview
     
+    public var dataPersistence: DataPersistence<PhotoObject>!
+    
     // make an instance of your view
     private let forecastSearchView = ForecastSearchView()
-    private let forecastCVCell = ForecastCVCell()
+//    private let forecastCVCell = ForecastCVCell()
     private let detail = DetailForecastViewController()
     
     var zipcodeForecast = [DailyForecastWrapper]()  {
@@ -42,6 +45,7 @@ class ForecastSearchController: UIViewController {
     }
     
     func updateUI()  {
+        print(UserInfo.shared.getZipCode() ?? "")
         ZipCodeHelper.getLatLong2(fromZipCode: UserInfo.shared.getZipCode() ?? "") { [weak self] (result) in
             switch result   {
             case .failure(let zipError):
@@ -67,6 +71,7 @@ extension ForecastSearchController: UICollectionViewDelegate    {
         let forecastItem = zipcodeForecast[indexPath.row]
         
         detail.forecast = forecastItem
+        detail.dataPersistence = dataPersistence
         
         self.navigationController?.pushViewController(detail, animated: true)
         print("this was clicked")

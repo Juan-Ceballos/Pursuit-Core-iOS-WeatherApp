@@ -7,24 +7,30 @@
 //
 
 import UIKit
+import DataPersistence
+
+//protocol PhotoSelectedDelegate: AnyObject {
+//    func adjustPhoto(_ photo: UIImage)
+//}
 
 class FavoritesViewController: UIViewController {
 
-    let favoritesView = FavoritesView()
-    let favoritesCell = FavoritesCell()
-    let persistenceHelper = PersistenceHelper(filename: "cityPhotos.plist")
+    //weak var photoSelectedDelegate: PhotoSelectedDelegate?
     
-    var photoCollection = [PhotoObject]()  {
-        didSet  {
-            DispatchQueue.main.async {
-                self.favoritesView.favoritesCollectionView.reloadData()
-            }
-        }
-    }
+    let favoritesView = FavoritesView()
+    //let favoritesCell = FavoritesCell()
+    //let detailFavoritesController = DetailForecastViewController()
+    
+    //let favoritesViewController = FavoritesViewController()
+    
+    //let persistenceHelper = PersistenceHelper(filename: "cityPhotos.plist")
+    public var dataPersistence: DataPersistence<PhotoObject>!
+
+    
+    var photoCollection = [PhotoObject]()  
     
     override func loadView() {
         view = favoritesView
-        
     }
     
     override func viewDidLoad() {
@@ -32,21 +38,24 @@ class FavoritesViewController: UIViewController {
         view.backgroundColor = .red
         favoritesView.favoritesCollectionView.dataSource = self
         favoritesView.favoritesCollectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: "favoritesCell")
+        
+        loadImages()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        loadImages()
+        //loadImages()
     }
     
     func loadImages()   {
         do  {
-            photoCollection = try persistenceHelper.loadPhotos()
+            photoCollection = try dataPersistence.loadItems()
         }
         catch   {
             print("loading error")
         }
     }
+
     
 }
 
@@ -55,16 +64,26 @@ extension FavoritesViewController: UICollectionViewDataSource   {
         return photoCollection.count
     }
     
+    // favoritesCell.favoritesReuseIdentifier
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: favoritesCell.favoritesReuseIdentifier, for: indexPath) as! FavoritesCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "favoritesCell", for: indexPath) as! FavoritesCell
     
         let photo = photoCollection[indexPath.row]
         
         cell.favoritedImage.image = UIImage(data: photo.imageData)
-        cell.layer.borderColor = UIColor.systemOrange.cgColor
+        cell.layer.borderColor = UIColor.systemGreen.cgColor
         cell.layer.borderWidth = 10
         return cell
     }
+}
+
+extension FavoritesViewController: DataPersistenceDelegate {
+    func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        favoritesView.favoritesCollectionView.reloadData()
+    }
     
-    
+    func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        
+    }
 }

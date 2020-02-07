@@ -104,5 +104,4 @@ class ForecastSearchView: UIView {
             zipCodeLabel.topAnchor.constraint(equalTo: zipcodeTextField.bottomAnchor, constant: 20)
         ])
     }
-    
 }

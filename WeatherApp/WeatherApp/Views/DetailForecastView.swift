@@ -9,6 +9,7 @@
 import UIKit
 import ImageKit
 
+/// <#Description#>
 class DetailForecastView: UIView    {
     
     private lazy var forecastInfoStackView: UIStackView = {

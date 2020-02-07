@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct PhotoObject: Codable    {
+struct PhotoObject: Codable & Equatable    {
     let imageData: Data
 }
