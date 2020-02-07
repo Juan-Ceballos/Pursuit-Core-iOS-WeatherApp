@@ -27,8 +27,12 @@ class FavoritesViewController: UIViewController {
         view.backgroundColor = .red
         favoritesView.favoritesCollectionView.dataSource = self
         favoritesView.favoritesCollectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: "favoritesCell")
-        loadImages()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(true)
+        loadImages()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,7 +42,7 @@ class FavoritesViewController: UIViewController {
     
     func loadImages()   {
         do  {
-            photoCollection = try dataPersistence.loadItems()
+            photoCollection = try dataPersistence.loadItems().reversed()
         }
         catch   {
             print("loading error")
