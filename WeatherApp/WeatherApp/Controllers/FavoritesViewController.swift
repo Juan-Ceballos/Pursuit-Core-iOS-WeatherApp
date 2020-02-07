@@ -27,12 +27,13 @@ class FavoritesViewController: UIViewController {
         view.backgroundColor = .red
         favoritesView.favoritesCollectionView.dataSource = self
         favoritesView.favoritesCollectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: "favoritesCell")
-        
         loadImages()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+
     }
     
     func loadImages()   {

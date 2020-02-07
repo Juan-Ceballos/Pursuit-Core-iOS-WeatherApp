@@ -30,7 +30,7 @@ class DetailForecastView: UIView    {
         cityLabel.text = "Weather Forecast For \(UserInfo.shared.getCity() ?? ""), \(forecast.timeToDate)"
         weatherSummaryLabel.text = forecast.summary
         
-        CityPhotoAPI.getCityPhoto(city: UserInfo.shared.getCity() ?? "", secretKey: SecreetKeys.pixabayKey) { [weak self] (result) in
+        CityPhotoAPI.getCityPhoto(city: UserInfo.shared.getCity()?.replacingOccurrences(of: " ", with: "") ?? "", secretKey: SecreetKeys.pixabayKey) { [weak self] (result) in
             switch result   {
             case .failure(let appError):
                 print(appError)

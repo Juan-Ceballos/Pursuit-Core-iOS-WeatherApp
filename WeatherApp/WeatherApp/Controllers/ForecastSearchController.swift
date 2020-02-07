@@ -39,7 +39,6 @@ class ForecastSearchController: UIViewController {
     }
     
     func updateUI()  {
-        print(UserInfo.shared.getZipCode() ?? "")
         ZipCodeHelper.getLatLong2(fromZipCode: UserInfo.shared.getZipCode() ?? "") { [weak self] (result) in
             switch result   {
             case .failure(let zipError):
@@ -52,7 +51,6 @@ class ForecastSearchController: UIViewController {
                         print(appError)
                     case .success(let forecast):
                         self?.zipcodeForecast = forecast.daily.data
-                        print(forecast.daily.data)
                     }
                 }
             }
@@ -95,22 +93,19 @@ extension ForecastSearchController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         forecastSearchView.zipcodeTextField.resignFirstResponder()
         let latLong = textField.text ?? ""
-        print(latLong)
         UserInfo.shared.updateZipcode(zipCode: latLong)
         ZipCodeHelper.getLatLong2(fromZipCode: latLong) { (result) in
             switch result   {
             case .failure(let zipError):
                 print(zipError)
             case .success(let latLongTuple):
-                print(latLongTuple)
-                UserInfo.shared.updateCity(city: latLongTuple.placeName.replacingOccurrences(of: " ", with: ""))
+                UserInfo.shared.updateCity(city: latLongTuple.placeName)
                 ZipCodeForecastAPI.fetchForeCast(latLong: latLongTuple) { (result) in
                     switch result   {
                     case .failure(let appError):
                         print(appError)
                     case .success(let forecast):
                         self.zipcodeForecast = forecast.daily.data
-                        print(forecast.daily.data)
                     }
                 }
             }
