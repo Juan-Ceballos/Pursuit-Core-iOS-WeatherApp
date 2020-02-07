@@ -16,16 +16,30 @@ class DetailForecastViewController: UIViewController {
         view = detailForecastView
     }
     
+    var dataPersistence = PersistenceHelper(filename: "cityPhotos.plist")
     var forecast: DailyForecastWrapper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemTeal
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Favorite", style: .plain, target: self, action: #selector(favorite))
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         updateUI()
+        
+    }
+    
+    @objc func favorite() {
+        if let imageData = detailForecastView.cityImage.image?.jpegData(compressionQuality: 0.5){
+            let imageObject = PhotoObject(imageData: imageData)
+            do  {
+                try dataPersistence.create(event: imageObject)
+            }
+            catch   {
+            }
+        }
     }
     
     func updateUI() {

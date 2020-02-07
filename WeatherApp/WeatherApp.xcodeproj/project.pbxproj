@@ -20,6 +20,11 @@
 		3EB2D37523EB388300BD2CFC /* SecretDoors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D37423EB388300BD2CFC /* SecretDoors.swift */; };
 		3EB2D37723ECA35D00BD2CFC /* CityPhotoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D37623ECA35D00BD2CFC /* CityPhotoAPI.swift */; };
 		3EB2D37923ECA48B00BD2CFC /* CityPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D37823ECA48B00BD2CFC /* CityPhoto.swift */; };
+		3EB2D37B23ECE82400BD2CFC /* FileManger+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D37A23ECE82400BD2CFC /* FileManger+Extensions.swift */; };
+		3EB2D37D23ECE84A00BD2CFC /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D37C23ECE84A00BD2CFC /* PersistenceHelper.swift */; };
+		3EB2D37F23ECE9AF00BD2CFC /* PhotoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D37E23ECE9AF00BD2CFC /* PhotoObject.swift */; };
+		3EB2D38123ECEA3700BD2CFC /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D38023ECEA3700BD2CFC /* FavoritesView.swift */; };
+		3EB2D38323ECF30200BD2CFC /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D38223ECF30200BD2CFC /* FavoritesCell.swift */; };
 		548CE052234D33B500B5177D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548CE051234D33B500B5177D /* AppDelegate.swift */; };
 		548CE054234D33B500B5177D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548CE053234D33B500B5177D /* SceneDelegate.swift */; };
 		548CE056234D33B500B5177D /* ForecastSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548CE055234D33B500B5177D /* ForecastSearchController.swift */; };
@@ -41,6 +46,11 @@
 		3EB2D37423EB388300BD2CFC /* SecretDoors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretDoors.swift; sourceTree = "<group>"; };
 		3EB2D37623ECA35D00BD2CFC /* CityPhotoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPhotoAPI.swift; sourceTree = "<group>"; };
 		3EB2D37823ECA48B00BD2CFC /* CityPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPhoto.swift; sourceTree = "<group>"; };
+		3EB2D37A23ECE82400BD2CFC /* FileManger+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManger+Extensions.swift"; sourceTree = "<group>"; };
+		3EB2D37C23ECE84A00BD2CFC /* PersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
+		3EB2D37E23ECE9AF00BD2CFC /* PhotoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoObject.swift; sourceTree = "<group>"; };
+		3EB2D38023ECEA3700BD2CFC /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		3EB2D38223ECF30200BD2CFC /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		548CE04E234D33B500B5177D /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		548CE051234D33B500B5177D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		548CE053234D33B500B5177D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +90,7 @@
 				3EB2D2F423E797FA00BD2CFC /* ZipCodeForecast.swift */,
 				3EB2D37423EB388300BD2CFC /* SecretDoors.swift */,
 				3EB2D37823ECA48B00BD2CFC /* CityPhoto.swift */,
+				3EB2D37E23ECE9AF00BD2CFC /* PhotoObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -89,8 +100,8 @@
 			children = (
 				3EB2D36423EA1BDC00BD2CFC /* ForecastTabBarController.swift */,
 				548CE055234D33B500B5177D /* ForecastSearchController.swift */,
-				3EB2D36623EA1D1500BD2CFC /* FavoritesViewController.swift */,
 				3EB2D36C23EA715400BD2CFC /* DetailForecastViewController.swift */,
+				3EB2D36623EA1D1500BD2CFC /* FavoritesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -101,6 +112,8 @@
 				3E5ED4DA23E4CC58001809C2 /* ForecastSearchView.swift */,
 				3E5ED4DE23E51FC4001809C2 /* ForecastCVCell.swift */,
 				3EB2D37223EB187A00BD2CFC /* DetailForecastView.swift */,
+				3EB2D38023ECEA3700BD2CFC /* FavoritesView.swift */,
+				3EB2D38223ECF30200BD2CFC /* FavoritesCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -109,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				3EB2D2F823E867AE00BD2CFC /* UserInfo.swift */,
+				3EB2D37A23ECE82400BD2CFC /* FileManger+Extensions.swift */,
+				3EB2D37C23ECE84A00BD2CFC /* PersistenceHelper.swift */,
 			);
 			path = "Data Persistence";
 			sourceTree = "<group>";
@@ -229,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EB2D38123ECEA3700BD2CFC /* FavoritesView.swift in Sources */,
 				548CE066234D33E600B5177D /* ZipCodeHelper.swift in Sources */,
 				3E5ED4DB23E4CC58001809C2 /* ForecastSearchView.swift in Sources */,
 				3EB2D37323EB187B00BD2CFC /* DetailForecastView.swift in Sources */,
@@ -236,11 +252,15 @@
 				3EB2D36523EA1BDD00BD2CFC /* ForecastTabBarController.swift in Sources */,
 				3EB2D2F723E79AD600BD2CFC /* ZipCodeForecastAPI.swift in Sources */,
 				548CE056234D33B500B5177D /* ForecastSearchController.swift in Sources */,
+				3EB2D38323ECF30200BD2CFC /* FavoritesCell.swift in Sources */,
+				3EB2D37D23ECE84A00BD2CFC /* PersistenceHelper.swift in Sources */,
 				3EB2D37723ECA35D00BD2CFC /* CityPhotoAPI.swift in Sources */,
 				3EB2D2F523E797FA00BD2CFC /* ZipCodeForecast.swift in Sources */,
 				3EB2D36D23EA715400BD2CFC /* DetailForecastViewController.swift in Sources */,
 				3EB2D36723EA1D1600BD2CFC /* FavoritesViewController.swift in Sources */,
+				3EB2D37F23ECE9AF00BD2CFC /* PhotoObject.swift in Sources */,
 				548CE052234D33B500B5177D /* AppDelegate.swift in Sources */,
+				3EB2D37B23ECE82400BD2CFC /* FileManger+Extensions.swift in Sources */,
 				548CE054234D33B500B5177D /* SceneDelegate.swift in Sources */,
 				3EB2D37923ECA48B00BD2CFC /* CityPhoto.swift in Sources */,
 				3EB2D2F923E867AE00BD2CFC /* UserInfo.swift in Sources */,

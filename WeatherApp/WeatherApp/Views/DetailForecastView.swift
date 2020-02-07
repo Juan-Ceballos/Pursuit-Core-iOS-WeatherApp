@@ -27,6 +27,8 @@ class DetailForecastView: UIView    {
         sunsetLabel.text = forecast.sunsetTime.description
         windspeedLabel.text = forecast.windSpeed.description
         precipInchesLabel.text = forecast.precipAccumulation?.description
+        cityLabel.text = "Weather Forecast For \(UserInfo.shared.getCity() ?? ""), \(forecast.timeToDate)"
+        weatherSummaryLabel.text = forecast.summary
         
         CityPhotoAPI.getCityPhoto(city: UserInfo.shared.getCity() ?? "", secretKey: SecreetKeys.pixabayKey) { [weak self] (result) in
             switch result   {
@@ -85,15 +87,17 @@ class DetailForecastView: UIView    {
     
     private lazy var cityLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .center
         return label
     }()
     
     private lazy var weatherSummaryLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .center
         return label
     }()
     
-    private lazy var cityImage: UIImageView = {
+    public lazy var cityImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleToFill
         return image
@@ -110,8 +114,22 @@ class DetailForecastView: UIView    {
     }
     
     private func commonInit()   {
+        setupCityLabel()
         setupCityImageConstraints()
+        setupWeatherSummaryConstraint()
         setupWeatherInfoStackView()
+    }
+    
+    private func setupCityLabel()   {
+        addSubview(cityLabel)
+        cityLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+        
+            cityLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            cityLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            cityLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            
+        ])
     }
     
     private func setupCityImageConstraints()    {
@@ -120,10 +138,23 @@ class DetailForecastView: UIView    {
         cityImage.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            cityImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            cityImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            cityImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            cityImage.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 20),
+            cityImage.leadingAnchor.constraint(equalTo: leadingAnchor),
+            cityImage.trailingAnchor.constraint(equalTo: trailingAnchor),
             cityImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
+        ])
+    }
+    
+    private func setupWeatherSummaryConstraint()    {
+        addSubview(weatherSummaryLabel)
+        
+        weatherSummaryLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+        
+            weatherSummaryLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            weatherSummaryLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            weatherSummaryLabel.topAnchor.constraint(equalTo: cityImage.bottomAnchor, constant: 8),
         ])
     }
     
@@ -133,9 +164,9 @@ class DetailForecastView: UIView    {
         forecastInfoStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            forecastInfoStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            forecastInfoStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-            forecastInfoStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 8),
+            forecastInfoStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            forecastInfoStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            forecastInfoStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8),
             forecastInfoStackView.heightAnchor.constraint(equalToConstant: 150)
         ])
     }

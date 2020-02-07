@@ -26,7 +26,8 @@ class ForecastTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewControllers = [forecastSCVC, favoritesVC]
+        viewControllers = [UINavigationController(rootViewController: forecastSCVC), favoritesVC]
+    
     }
 
 }
