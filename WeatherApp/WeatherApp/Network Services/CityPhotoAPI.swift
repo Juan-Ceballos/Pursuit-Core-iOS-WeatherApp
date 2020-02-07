@@ -9,11 +9,8 @@
 import Foundation
 import NetworkHelper
 
-//"https://pixabay.com/api/?key=14991329-746c4fc942c64ffd858babd92&q=chicago&image_type=photo"
-
 class CityPhotoAPI  {
     static func getCityPhoto(city: String, secretKey: String, completion: @escaping (Result<CityPhoto, AppError>) -> ())  {
-        //https://pixabay.com/api/?key=14991329-746c4fc942c64ffd858babd92&q=Chicago&city&image_type=photo
         let endpointURL = "https://pixabay.com/api/?key=\(secretKey)&q=\(city)&city&image_type=photo"
         
         guard let url = URL(string: endpointURL)

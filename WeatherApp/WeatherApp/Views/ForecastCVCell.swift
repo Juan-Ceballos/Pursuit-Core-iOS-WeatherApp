@@ -9,9 +9,7 @@
 import UIKit
 
 class ForecastCVCell: UICollectionViewCell {
-    
-    //public lazy var forecastCell = UICollectionViewCell()
-    
+        
     private let cellReuseIdentifier = "forecastCell"
     
     private lazy var timeLabel: UILabel = {

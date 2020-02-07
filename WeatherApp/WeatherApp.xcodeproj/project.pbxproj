@@ -20,8 +20,6 @@
 		3EB2D37523EB388300BD2CFC /* SecretDoors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D37423EB388300BD2CFC /* SecretDoors.swift */; };
 		3EB2D37723ECA35D00BD2CFC /* CityPhotoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D37623ECA35D00BD2CFC /* CityPhotoAPI.swift */; };
 		3EB2D37923ECA48B00BD2CFC /* CityPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D37823ECA48B00BD2CFC /* CityPhoto.swift */; };
-		3EB2D37B23ECE82400BD2CFC /* FileManger+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D37A23ECE82400BD2CFC /* FileManger+Extensions.swift */; };
-		3EB2D37D23ECE84A00BD2CFC /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D37C23ECE84A00BD2CFC /* PersistenceHelper.swift */; };
 		3EB2D37F23ECE9AF00BD2CFC /* PhotoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D37E23ECE9AF00BD2CFC /* PhotoObject.swift */; };
 		3EB2D38123ECEA3700BD2CFC /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D38023ECEA3700BD2CFC /* FavoritesView.swift */; };
 		3EB2D38323ECF30200BD2CFC /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2D38223ECF30200BD2CFC /* FavoritesCell.swift */; };
@@ -46,8 +44,6 @@
 		3EB2D37423EB388300BD2CFC /* SecretDoors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretDoors.swift; sourceTree = "<group>"; };
 		3EB2D37623ECA35D00BD2CFC /* CityPhotoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPhotoAPI.swift; sourceTree = "<group>"; };
 		3EB2D37823ECA48B00BD2CFC /* CityPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPhoto.swift; sourceTree = "<group>"; };
-		3EB2D37A23ECE82400BD2CFC /* FileManger+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManger+Extensions.swift"; sourceTree = "<group>"; };
-		3EB2D37C23ECE84A00BD2CFC /* PersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
 		3EB2D37E23ECE9AF00BD2CFC /* PhotoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoObject.swift; sourceTree = "<group>"; };
 		3EB2D38023ECEA3700BD2CFC /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		3EB2D38223ECF30200BD2CFC /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
@@ -122,8 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				3EB2D2F823E867AE00BD2CFC /* UserInfo.swift */,
-				3EB2D37A23ECE82400BD2CFC /* FileManger+Extensions.swift */,
-				3EB2D37C23ECE84A00BD2CFC /* PersistenceHelper.swift */,
 			);
 			path = "Data Persistence";
 			sourceTree = "<group>";
@@ -253,14 +247,12 @@
 				3EB2D2F723E79AD600BD2CFC /* ZipCodeForecastAPI.swift in Sources */,
 				548CE056234D33B500B5177D /* ForecastSearchController.swift in Sources */,
 				3EB2D38323ECF30200BD2CFC /* FavoritesCell.swift in Sources */,
-				3EB2D37D23ECE84A00BD2CFC /* PersistenceHelper.swift in Sources */,
 				3EB2D37723ECA35D00BD2CFC /* CityPhotoAPI.swift in Sources */,
 				3EB2D2F523E797FA00BD2CFC /* ZipCodeForecast.swift in Sources */,
 				3EB2D36D23EA715400BD2CFC /* DetailForecastViewController.swift in Sources */,
 				3EB2D36723EA1D1600BD2CFC /* FavoritesViewController.swift in Sources */,
 				3EB2D37F23ECE9AF00BD2CFC /* PhotoObject.swift in Sources */,
 				548CE052234D33B500B5177D /* AppDelegate.swift in Sources */,
-				3EB2D37B23ECE82400BD2CFC /* FileManger+Extensions.swift in Sources */,
 				548CE054234D33B500B5177D /* SceneDelegate.swift in Sources */,
 				3EB2D37923ECA48B00BD2CFC /* CityPhoto.swift in Sources */,
 				3EB2D2F923E867AE00BD2CFC /* UserInfo.swift in Sources */,

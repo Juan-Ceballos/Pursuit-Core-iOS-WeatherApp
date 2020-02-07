@@ -10,16 +10,10 @@ import UIKit
 import DataPersistence
 
 class ForecastSearchController: UIViewController {
-
-    // enter a zipcode and display 7 Day Forecast
-    
-    // 3 controllers, main to enter zipcode and get collection view of weather forecast, city image with weather for day selected, favorite images tableview
     
     public var dataPersistence: DataPersistence<PhotoObject>!
     
-    // make an instance of your view
     private let forecastSearchView = ForecastSearchView()
-//    private let forecastCVCell = ForecastCVCell()
     private let detail = DetailForecastViewController()
     
     var zipcodeForecast = [DailyForecastWrapper]()  {
@@ -92,14 +86,11 @@ extension ForecastSearchController: UICollectionViewDataSource  {
         UserInfo.shared.updateLowTemp(lowTemp: forecast.temperatureLow.description)
         
         cell.configureCell(forecast: forecast)
-        //cell.layer.borderColor = UIColor.systemOrange.cgColor
-        //cell.layer.borderWidth = 10
         return cell
     }
     
 }
 
-// put forecast model in collection view, connect assets to icon in model, string
 extension ForecastSearchController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         forecastSearchView.zipcodeTextField.resignFirstResponder()
@@ -112,7 +103,7 @@ extension ForecastSearchController: UITextFieldDelegate {
                 print(zipError)
             case .success(let latLongTuple):
                 print(latLongTuple)
-                UserInfo.shared.updateCity(city: latLongTuple.placeName)
+                UserInfo.shared.updateCity(city: latLongTuple.placeName.replacingOccurrences(of: " ", with: ""))
                 ZipCodeForecastAPI.fetchForeCast(latLong: latLongTuple) { (result) in
                     switch result   {
                     case .failure(let appError):

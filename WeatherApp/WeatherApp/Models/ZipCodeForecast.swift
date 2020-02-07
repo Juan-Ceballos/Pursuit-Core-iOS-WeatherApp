@@ -9,12 +9,6 @@
 import Foundation
 
 struct ZipCodeForecast: Codable & Equatable  {
-    // high
-    // low
-    // sunrise
-    // sunset
-    // wind speed
-    // inches of precipitation
     let daily: DailyWrapper
 }
 

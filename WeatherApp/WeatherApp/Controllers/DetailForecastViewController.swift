@@ -12,14 +12,12 @@ import DataPersistence
 class DetailForecastViewController: UIViewController {
 
     private let detailForecastView = DetailForecastView()
-    //let favoritesViewController = FavoritesViewController()
     let favoritesView = FavoritesView()
     
     override func loadView()    {
         view = detailForecastView
     }
     
-    //var dataPersistence = PersistenceHelper(filename: "cityPhotos.plist")
     var dataPersistence: DataPersistence<PhotoObject>!
     var forecast: DailyForecastWrapper?
     
@@ -27,8 +25,6 @@ class DetailForecastViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemTeal
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Favorite", style: .plain, target: self, action: #selector(favorite))
-        //loadImageObjects()
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,21 +39,7 @@ class DetailForecastViewController: UIViewController {
     }
     
     @objc func favorite() {
-        
         selectedImage = detailForecastView.cityImage.image
-        //favoritesViewController.photoSelectedDelegate?.adjustPhoto(selectedImage!)
-
-        /*
-        if let imageData = detailForecastView.cityImage.image?.jpegData(compressionQuality: 0.5){
-            let imageObject = PhotoObject(imageData: imageData)
-            do  {
-                try dataPersistence.create(event: imageObject)
-            }
-            catch   {
-            }
-            
-            
-        }*/
     }
     
     func favoritePhoto()    {
@@ -72,9 +54,6 @@ class DetailForecastViewController: UIViewController {
         }
         
         let imageObject = PhotoObject(imageData: imageConvert)
-        //favoritesViewController.photoCollection.insert(imageObject, at: 0)
-        //let indexPath = IndexPath(row: 0, section: 0)
-        //favoritesView.favoritesCollectionView.insertItems(at: [indexPath])
         
         do  {
             try dataPersistence.createItem(imageObject)
@@ -82,16 +61,6 @@ class DetailForecastViewController: UIViewController {
         catch   {
         }
     }
-    
-//    private func loadImageObjects() {
-//        do  {
-//            favoritesViewController.photoCollection = try dataPersistence.loadItems()
-//        }
-//        catch   {
-//            print("loading error")
-//        }
-//    }
-    
     
     func updateUI() {
         guard let forecast = forecast
@@ -103,9 +72,3 @@ class DetailForecastViewController: UIViewController {
     }
 
 }
-
-//extension DetailForecastViewController: PhotoSelectedDelegate {
-//    func adjustPhoto(_ photo: UIImage) {
-//        selectedImage = photo
-//    }
-//}
