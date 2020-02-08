@@ -37,4 +37,24 @@ struct DailyForecastWrapper: Codable & Equatable   {
                let localDate = dateFormatter.string(from: date)
                return localDate
     }
+    
+    var sunsetTimeConverted: String {
+        let date = Date(timeIntervalSince1970: TimeInterval(sunsetTime))
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.medium
+        dateFormatter.dateFormat = "h:mm a"
+        dateFormatter.timeZone = .current
+        let localDate = dateFormatter.string(from: date)
+        return localDate
+    }
+    
+    var sunriseTimeConverted: String    {
+        let date = Date(timeIntervalSince1970: TimeInterval(sunriseTime))
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.medium
+        dateFormatter.dateFormat = "h:mm a"
+        dateFormatter.timeZone = .current
+        let localDate = dateFormatter.string(from: date)
+        return localDate
+    }
 }

@@ -21,12 +21,12 @@ class DetailForecastView: UIView    {
     }()
     
     func configureView(forecast: DailyForecastWrapper)    {
-        highTempLabel.text = forecast.temperatureHigh.description
-        lowTempLabel.text = forecast.temperatureLow.description
-        sunriseLabel.text = forecast.sunriseTime.description
-        sunsetLabel.text = forecast.sunsetTime.description
-        windspeedLabel.text = forecast.windSpeed.description
-        precipInchesLabel.text = forecast.precipAccumulation?.description
+        highTempLabel.text = "High: \(forecast.temperatureHigh.description)℉"
+        lowTempLabel.text = "Low: \(forecast.temperatureLow.description)℉"
+        sunriseLabel.text = "Sunrise: \(forecast.sunriseTimeConverted.description)"
+        sunsetLabel.text = "Sunset: \(forecast.sunsetTimeConverted.description)"
+        windspeedLabel.text = "Windspeed: \(forecast.windSpeed.description) MPH"
+        precipInchesLabel.text = "Inches of Precipitation: \(forecast.precipAccumulation?.description ?? "")"
         cityLabel.text = "Weather Forecast For \(UserInfo.shared.getCity() ?? ""), \(forecast.timeToDate)"
         weatherSummaryLabel.text = forecast.summary
         
